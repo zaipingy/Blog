@@ -1,0 +1,783 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>牛客刷题</title>
+    <meta name="description" content="  最强大脑          题目描述      最近在看C语言，所以在牛客上做的题就用C去做了。挑一些比较有意思的题，记录一下。最强大脑题目描述小B乘火车和朋友们一起在N市到M市之间旅行。她在路途中时睡时醒。当她醒来观看窗外的风景时，注意到每个火车站都有一种特别颜色的旗帜，但是她看到的旗帜仅仅是经过的一小部分...">
+
+    <link rel="shortcut icon" href="/favicon.ico?" type="image/x-icon">
+    <link rel="icon" href="/favicon.ico?" type="image/x-icon">
+    <link rel="stylesheet" href="https://cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://at.alicdn.com/t/font_8v3czwksspqlg14i.css">
+    <link rel="stylesheet" href="/css/main.css ">
+    <link rel="canonical" href="http://localhost:4000/2017/12/26/%E7%89%9B%E5%AE%A2%E7%BC%96%E7%A8%8B12.26/">
+    <link rel="alternate" type="application/rss+xml" title="zaipingy" href="http://localhost:4000/feed.xml ">
+
+
+
+    <script>
+    // google analytics
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+      ga('create', 'UA-112183550-1', 'auto');
+      ga('send', 'pageview');
+
+    </script>
+
+
+
+</head>
+
+
+  <body>
+
+    <header id="top">
+    <div class="wrapper">
+        <a href="/" class="brand">zaipingy</a>
+        <small>My Blog</small>
+        <button id="headerMenu" class="menu"><i class="fa fa-bars"></i></button>
+        <nav id="headerNav">
+            <ul>
+                <li>
+                    
+                    <a href="/">
+                    
+                        <i class="fa fa-home"></i>Home
+                    </a>
+                </li>
+
+                
+                    
+                    <li>
+                        
+                        <a href="/archive/">
+                        
+                            <i class="fa fa-archive"></i>Archives
+                        </a>
+                    </li>
+                    
+                
+                    
+                    <li>
+                        
+                        <a href="/category/">
+                        
+                            <i class="fa fa-th-list"></i>Categories
+                        </a>
+                    </li>
+                    
+                
+                    
+                    <li>
+                        
+                        <a href="/tag/">
+                        
+                            <i class="fa fa-tags"></i>Tags
+                        </a>
+                    </li>
+                    
+                
+                    
+                    <li>
+                        
+                        <a href="/collection/">
+                        
+                            <i class="fa fa-bookmark"></i>Collections
+                        </a>
+                    </li>
+                    
+                
+                    
+                    <li>
+                        
+                        <a href="/demo/">
+                        
+                            <i class="fa fa-play"></i>Demo
+                        </a>
+                    </li>
+                    
+                
+                    
+                    <li>
+                        
+                        <a href="/about/">
+                        
+                            <i class="fa fa-heart"></i>About
+                        </a>
+                    </li>
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+            </ul>
+        </nav>
+    </div>
+</header>
+
+
+        <div class="page clearfix" post>
+    <div class="left">
+        <h1>牛客刷题</h1>
+        <div class="label">
+
+            <div class="label-card">
+                <i class="fa fa-calendar"></i>2017-12-26
+            </div>
+
+            <div class="label-card">
+                <i class="fa fa-user"></i>zaipingy
+                
+            </div>
+
+            <div class="label-card">
+                
+            </div>
+
+            <div class="label-card">
+            
+
+
+<!-- <span class="point">•</span> -->
+<span class="categories">
+  <i class="fa fa-th-list"></i>
+  
+    
+        <a href="/category/#牛客" title="Category: 牛客" rel="category">牛客</a>
+    
+  
+
+  <!-- <span class="point">•</span> -->
+</span>
+
+
+            </div>
+
+            <div class="label-card">
+            
+<!-- <span class="point">•</span> -->
+<span class="pageTag">
+  <i class="fa fa-tags"></i>
+  
+    
+        <!--a href="/tag/#%E7%89%9B%E5%AE%A2" title="Tag: 牛客" rel="tag">牛客</a-->
+        <a href="/tag/#牛客" title="Tag: 牛客" rel="tag">牛客</a>&nbsp;
+    
+        <!--a href="/tag/#%E7%AE%97%E6%B3%95" title="Tag: 算法" rel="tag">算法</a-->
+        <a href="/tag/#算法" title="Tag: 算法" rel="tag">算法</a>&nbsp;
+    
+        <!--a href="/tag/#C" title="Tag: C" rel="tag">C</a-->
+        <a href="/tag/#C" title="Tag: C" rel="tag">C</a>
+    
+  
+
+</span>
+
+            </div>
+
+        </div>
+        <hr>
+        <article itemscope itemtype="http://schema.org/BlogPosting">
+        <ul id="markdown-toc">
+  <li><a href="#最强大脑" id="markdown-toc-最强大脑">最强大脑</a>    <ul>
+      <li><a href="#题目描述" id="markdown-toc-题目描述">题目描述</a></li>
+      <li><a href="#输入描述" id="markdown-toc-输入描述">输入描述:</a></li>
+      <li><a href="#输出描述" id="markdown-toc-输出描述">输出描述:</a></li>
+      <li><a href="#示例1" id="markdown-toc-示例1">示例1</a>        <ul>
+          <li><a href="#输入" id="markdown-toc-输入">输入</a></li>
+          <li><a href="#输出" id="markdown-toc-输出">输出</a></li>
+        </ul>
+      </li>
+      <li><a href="#代码" id="markdown-toc-代码">代码：</a></li>
+    </ul>
+  </li>
+  <li><a href="#游戏任务标记" id="markdown-toc-游戏任务标记">游戏任务标记</a>    <ul>
+      <li><a href="#题目描述-1" id="markdown-toc-题目描述-1">题目描述</a></li>
+      <li><a href="#输入描述-1" id="markdown-toc-输入描述-1">输入描述:</a></li>
+      <li><a href="#输出描述-1" id="markdown-toc-输出描述-1">输出描述:</a></li>
+      <li><a href="#示例1-1" id="markdown-toc-示例1-1">示例1</a>        <ul>
+          <li><a href="#输入-1" id="markdown-toc-输入-1">输入</a></li>
+          <li><a href="#输出-1" id="markdown-toc-输出-1">输出</a></li>
+        </ul>
+      </li>
+      <li><a href="#代码-1" id="markdown-toc-代码-1">代码</a></li>
+    </ul>
+  </li>
+  <li><a href="#饥饿的小易" id="markdown-toc-饥饿的小易">饥饿的小易</a>    <ul>
+      <li><a href="#题目描述-2" id="markdown-toc-题目描述-2">题目描述</a></li>
+      <li><a href="#输入描述-2" id="markdown-toc-输入描述-2">输入描述:</a></li>
+      <li><a href="#输出描述-2" id="markdown-toc-输出描述-2">输出描述:</a></li>
+      <li><a href="#示例1-2" id="markdown-toc-示例1-2">示例1</a>        <ul>
+          <li><a href="#输入-2" id="markdown-toc-输入-2">输入</a></li>
+          <li><a href="#输出-2" id="markdown-toc-输出-2">输出</a></li>
+        </ul>
+      </li>
+      <li><a href="#代码-2" id="markdown-toc-代码-2">代码</a></li>
+    </ul>
+  </li>
+</ul>
+
+<p>最近在看C语言，所以在牛客上做的题就用C去做了。</p>
+
+<p>挑一些比较有意思的题，记录一下。</p>
+
+<h1 id="最强大脑">最强大脑</h1>
+<h2 id="题目描述">题目描述</h2>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>小B乘火车和朋友们一起在N市到M市之间旅行。她在路途中时睡时醒。当她醒来观看窗外的风景时，注意到每个火车站都有一种特别颜色的旗帜，但是她看到的旗帜仅仅是经过的一小部分。小B在乘车过程中有两次清醒的时间，她到达旅程终点时处于睡梦中。出站时，她和朋友们谈论着一路的见闻，朋友们觉得很有意思，他们把N到和M之间经过车站的旗帜颜色依次列出来，然后告诉你小B记得的旗帜颜色序列，让你判断小B究竟是从N和M之间哪些方向才能看到所说颜色的旗帜，还是根本就不可能看到？颜色用字母代表，相同的字母代表相同的颜色，不同的字母则表示不同的颜色。
+</code></pre></div></div>
+
+<h2 id="输入描述">输入描述:</h2>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>输入中有多组测试数据，每组测试数据包含三行，第一行为一个由小写拉丁字母构成的非空字符串，长度不超过10^5，表示N到M之间车站的颜色。火车从M向N运行时，经过的车站相同，只是方向相反。第二行为小B在第一次睡醒时看到的颜色序列，第三行为小B在第二次睡醒时看到的颜色序列。两个序列都是小写的拉丁字母构成的字符串，长度不超过100个字母。每个序列的颜色顺序排列按小B看到的时间顺序排列。
+</code></pre></div></div>
+<h2 id="输出描述">输出描述:</h2>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>对每组测试数据，在单独的行中输出小B的旅行方向。
+  
+forward - 由N到M方向； 
+
+backward -由M到N方向  
+
+both - 两种方向都有可能；  
+
+invalid - 不可能看到这样的颜色序列；
+</code></pre></div></div>
+<h2 id="示例1">示例1</h2>
+<h3 id="输入">输入</h3>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>atob 
+a 
+b 
+aaacaaa 
+aca 
+aa
+</code></pre></div></div>
+<h3 id="输出">输出</h3>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>forward 
+both
+</code></pre></div></div>
+<h2 id="代码">代码：</h2>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+#include&lt;stdio.h&gt;
+#include&lt;string.h&gt;
+
+bool check(char a[],char b[]);
+void reverse(char a[]);
+int main(){
+	char input[100000];
+	char a[1000],b[1000];
+	scanf("%s",input);
+	scanf("%s",a);
+	scanf("%s",b);
+	bool zheng = check(input, strcat(a,b));
+	reverse(input);
+	// printf("%s\n", input);
+	bool ni = check(input, a);
+	// printf("%s %s\n",input, a);
+	if(zheng&amp;&amp;ni){
+		printf("both\n");
+	}else if(zheng){
+		printf("forward\n");
+	}else if(ni){
+		printf("backward\n");
+	}else{
+		printf("invalid");
+	}
+
+}
+bool check(char a[], char b[]){
+	bool flag = false;
+	int i=0,j=0;
+	while(!flag){
+		if(a[i] == b[j]){
+			j++;
+		}
+		i++;
+		if(strlen(b) == j){
+			flag = true;
+			break;
+		}
+		if(strlen(a)==i){
+			break;
+		}
+	}
+	return flag;
+}
+void reverse(char a[]){
+	int len = strlen(a);
+	for(int i = 0;i &lt; len/2;i++){
+		char temp = a[i];
+		a[i] = a[len-i-1];
+		a[len-i-1] = temp;
+	}
+}
+</code></pre></div></div>
+
+<h1 id="游戏任务标记">游戏任务标记</h1>
+<h2 id="题目描述-1">题目描述</h2>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>游戏里面有很多各式各样的任务，其中有一种任务玩家只能做一次，这类任务一共有1024个，任务ID范围[1,1024]。请用32个unsigned int类型来记录着1024个任务是否已经完成。初始状态都是未完成。 输入两个参数，都是任务ID，需要设置第一个ID的任务为已经完成；并检查第二个ID的任务是否已经完成。 输出一个参数，如果第二个ID的任务已经完成输出1，如果未完成输出0。如果第一或第二个ID不在[1,1024]范围，则输出-1。
+</code></pre></div></div>
+<h2 id="输入描述-1">输入描述:</h2>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>输入包括一行,两个整数表示人物ID.
+</code></pre></div></div>
+<h2 id="输出描述-1">输出描述:</h2>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>输出是否完成
+</code></pre></div></div>
+<h2 id="示例1-1">示例1</h2>
+<h3 id="输入-1">输入</h3>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>1024 1024
+</code></pre></div></div>
+<h3 id="输出-1">输出</h3>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>1
+</code></pre></div></div>
+<h2 id="代码-1">代码</h2>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>#include&lt;stdio.h&gt;
+int main(){
+	unsigned int input1,input2;
+	unsigned int a[32];
+	scanf("%d %d", &amp;input1,&amp;input2);
+	if(input1&lt;1 || input1&gt;1024 || input2&lt;1 || input2&gt;1024){
+		printf("-1\n");
+		return 0;}
+	a[(input1-1)/32] |= (1&lt;&lt;(input1-1)%32);
+	printf("%d\n",(a[(input2-1)/32] &gt;&gt; (input2-1)%32) &amp; 1);
+	return 0;
+}
+
+</code></pre></div></div>
+
+<h1 id="饥饿的小易">饥饿的小易</h1>
+<h2 id="题目描述-2">题目描述</h2>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>小易总是感觉饥饿，所以作为章鱼的小易经常出去寻找贝壳吃。最开始小易在一个初始位置x_0。对于小易所处的当前位置x，他只能通过神秘的力量移动到 4 * x + 3或者8 * x + 7。因为使用神秘力量要耗费太多体力，所以它只能使用神秘力量最多100,000次。贝壳总生长在能被1,000,000,007整除的位置(比如：位置0，位置1,000,000,007，位置2,000,000,014等)。小易需要你帮忙计算最少需要使用多少次神秘力量就能吃到贝壳。
+</code></pre></div></div>
+<h2 id="输入描述-2">输入描述:</h2>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>输入一个初始位置x_0,范围在1到1,000,000,006
+</code></pre></div></div>
+<h2 id="输出描述-2">输出描述:</h2>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>输出小易最少需要使用神秘力量的次数，如果使用次数使用完还没找到贝壳，则输出-1
+</code></pre></div></div>
+<h2 id="示例1-2">示例1</h2>
+<h3 id="输入-2">输入</h3>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>125000000
+</code></pre></div></div>
+<h3 id="输出-2">输出</h3>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>1
+</code></pre></div></div>
+<h2 id="代码-2">代码</h2>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>#include&lt;stdio.h&gt;
+#include&lt;math.h&gt;
+
+int search(int position);
+int main(){
+	int position;
+	scanf("%d", &amp;position);
+	if ((position % 1000000007)==0){
+		printf("0");
+		return 0;
+	}
+	search(position);
+}
+int search(int position){
+	int temp = position;
+	for(int i=1; i&lt;300000;i++){
+		temp = temp * 2 + 1;
+		if((temp % 1000000007)==0){
+			for(int j=0; j&lt;=(i/2);j++){
+				if ((i-2*j)%3==0){
+					printf("%d\n", (i+j)/3);
+					return 0;
+				}
+			}
+		}
+		temp %= 1000000007;
+	}
+	printf("-1\n");
+    return 0;
+}
+</code></pre></div></div>
+
+
+        </article>
+        <hr>
+
+        
+        
+            
+            
+                
+                    
+                        
+                        <h2 id="similar_posts">Similar Posts</h2>
+                        <ul>
+                        
+                        <li class="relatedPost">
+                            <a href="/2017/12/27/%E7%89%9B%E5%AE%A2%E7%BC%96%E7%A8%8B12.27-%E5%90%88%E5%94%B1%E5%9B%A2/">牛客刷题
+                            
+                            </a>
+                        </li>
+                        
+                        
+                    
+                
+                    
+                
+                    
+                
+            
+                
+                    
+                
+                    
+                
+                    
+                
+            
+                
+                    
+                
+                    
+                
+                    
+                
+            
+        
+            
+            
+                
+                    
+                
+                    
+                
+                    
+                
+            
+        
+            
+            
+                
+                    
+                
+                    
+                
+                    
+                
+            
+                
+                    
+                
+                    
+                
+                    
+                
+            
+        
+            
+            
+                
+                    
+                
+                    
+                
+                    
+                
+            
+        
+            
+            
+                
+                    
+                
+                    
+                
+                    
+                
+            
+        
+            
+            
+                
+                    
+                        
+                        <li class="relatedPost">
+                            <a href="/2017/12/08/%E7%89%9B%E5%AE%A2%E7%BC%96%E7%A8%8B12.8/">牛客刷题
+                            
+                            </a>
+                        </li>
+                        
+                        
+                    
+                
+                    
+                
+                    
+                
+            
+                
+                    
+                
+                    
+                
+                    
+                
+            
+                
+                    
+                
+                    
+                
+                    
+                
+            
+        
+            
+            
+                
+                    
+                        
+                        <li class="relatedPost">
+                            <a href="/2017/12/07/%E7%89%9B%E5%AE%A2%E7%BC%96%E7%A8%8B/">牛客刷题
+                            
+                            </a>
+                        </li>
+                        
+                        
+                    
+                
+                    
+                
+                    
+                
+            
+                
+                    
+                
+                    
+                
+                    
+                
+            
+                
+                    
+                
+                    
+                
+                    
+                
+            
+        
+            
+            
+                
+                    
+                
+                    
+                
+                    
+                
+            
+        
+            
+            
+                
+                    
+                
+                    
+                        
+                        <li class="relatedPost">
+                            <a href="/2017/12/06/%E6%95%B0%E7%BB%84/">数组
+                            
+                            </a>
+                        </li>
+                        
+                        
+                    
+                
+                    
+                
+            
+                
+                    
+                
+                    
+                
+                    
+                
+            
+                
+                    
+                
+                    
+                
+                    
+                
+            
+        
+            
+            
+                
+                    
+                
+                    
+                
+                    
+                
+            
+        
+        
+            </ul>
+        
+
+        <div class="post-recent">
+    <div class="pre">
+        
+        <p><strong>上一篇</strong> <a href="/2017/12/21/robot-framework/">robot framework</a></p>
+        
+    </div>
+    <div class="nex">
+
+        
+        <p><strong>下一篇</strong> <a href="/2017/12/27/%E7%89%9B%E5%AE%A2%E7%BC%96%E7%A8%8B12.27-%E5%90%88%E5%94%B1%E5%9B%A2/">牛客刷题</a></p>
+        
+    </div>
+</div>
+
+
+        <h2 id="comments">Comments</h2>
+        
+
+
+<div id="disqus_thread"></div>
+<script>
+    /**
+     * RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+     * LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables
+     */
+
+    var disqus_config = function() {
+        this.page.url = 'http://localhost:4000/2017/12/26/%E7%89%9B%E5%AE%A2%E7%BC%96%E7%A8%8B12.26/'; // Replace PAGE_URL with your page's canonical URL variable
+        this.page.identifier = 'http://localhost:4000/2017/12/26/%E7%89%9B%E5%AE%A2%E7%BC%96%E7%A8%8B12.26/'; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+    };
+
+    (function() { // DON'T EDIT BELOW THIS LINE
+        var d = document,
+            s = d.createElement('script');
+
+        s.src = '//zyuan.disqus.com/embed.js';
+
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+
+
+
+
+    </div>
+    <button class="anchor"><i class="fa fa-anchor"></i></button>
+    <div class="right">
+        <div class="wrap">
+
+            <!-- Content -->
+            <div class="side content">
+                <div>
+                    Content
+                </div>
+                <ul id="content-side" class="content-ul">
+                    
+                    <li><a href="#similar_posts">Similar Posts</a></li>
+                    
+                    <li><a href="#comments">Comments</a></li>
+                </ul>
+            </div>
+            <!-- 其他div框放到这里 -->
+            <!-- <div class="side">bbbb</div> -->
+        </div>
+    </div>
+</div>
+<script>
+/**
+ * target _blank
+ */
+(function() {
+    var aTags = document.querySelectorAll('article a:not([id])')
+    for (var i = 0; i < aTags.length; i++) {
+        aTags[i].setAttribute('target', '_blank')
+    }
+}());
+</script>
+<script src="/js/pageContent.js " charset="utf-8"></script>
+
+
+    <footer class="site-footer">
+
+
+    <div class="wrapper">
+
+        <p class="description">
+             为所当为，顺气自然 
+        </p>
+        <p class="contact">
+            Contact me at:         
+        </p>
+        <p>
+            本站总访问量<span id="busuanzi_value_site_pv"></span>次，本站访客数<span id="busuanzi_value_site_uv"></span>人次，本文总阅读量<span id="busuanzi_value_page_pv"></span>次
+        </p>
+        <p class="power">
+            <span>
+                Site powered by <a href="https://jekyllrb.com/">Jekyll</a> & <a href="https://pages.github.com/">Github Pages</a>.
+            </span>
+            <span>
+                Theme designed by <a href="https://github.com/Gaohaoyang">HyG</a>.
+            </span>
+        </p>
+    </div>
+</footer>
+<script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+    <div class="back-to-top">
+    <a href="#top" data-scroll>
+        <i class="fa fa-arrow-up" aria-hidden="true"></i>
+    </a>
+</div>
+
+    <script src=" /js/main.js " charset="utf-8"></script>
+    <script src=" /js/smooth-scroll.min.js " charset="utf-8"></script>
+    <script type="text/javascript">
+      smoothScroll.init({
+        speed: 500, // Integer. How fast to complete the scroll in milliseconds
+        easing: 'easeInOutCubic', // Easing pattern to use
+        offset: 20, // Integer. How far to offset the scrolling anchor location in pixels
+      });
+    </script>
+    <!-- <script src=" /js/scroll.min.js " charset="utf-8"></script> -->
+  </body>
+
+</html>

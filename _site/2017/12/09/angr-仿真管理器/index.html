@@ -1,0 +1,525 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>angr 仿真管理器</title>
+    <meta name="description" content="仿真管理器就是程序符号执行状态的一个管理器，可以对这些状态进行过滤，执行，合并等等。首先，构造仿真管理器：import angr&gt;&gt;&gt; proj = angr.Project('examples/fauxware/fauxware', auto_load_libs=False)&gt;&gt;&...">
+
+    <link rel="shortcut icon" href="/favicon.ico?" type="image/x-icon">
+    <link rel="icon" href="/favicon.ico?" type="image/x-icon">
+    <link rel="stylesheet" href="https://cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://at.alicdn.com/t/font_8v3czwksspqlg14i.css">
+    <link rel="stylesheet" href="/css/main.css ">
+    <link rel="canonical" href="http://localhost:4000/2017/12/09/angr-%E4%BB%BF%E7%9C%9F%E7%AE%A1%E7%90%86%E5%99%A8/">
+    <link rel="alternate" type="application/rss+xml" title="zaipingy" href="http://localhost:4000/feed.xml ">
+
+
+
+    <script>
+    // google analytics
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+      ga('create', 'UA-112183550-1', 'auto');
+      ga('send', 'pageview');
+
+    </script>
+
+
+
+</head>
+
+
+  <body>
+
+    <header id="top">
+    <div class="wrapper">
+        <a href="/" class="brand">zaipingy</a>
+        <small>My Blog</small>
+        <button id="headerMenu" class="menu"><i class="fa fa-bars"></i></button>
+        <nav id="headerNav">
+            <ul>
+                <li>
+                    
+                    <a href="/">
+                    
+                        <i class="fa fa-home"></i>Home
+                    </a>
+                </li>
+
+                
+                    
+                    <li>
+                        
+                        <a href="/archive/">
+                        
+                            <i class="fa fa-archive"></i>Archives
+                        </a>
+                    </li>
+                    
+                
+                    
+                    <li>
+                        
+                        <a href="/category/">
+                        
+                            <i class="fa fa-th-list"></i>Categories
+                        </a>
+                    </li>
+                    
+                
+                    
+                    <li>
+                        
+                        <a href="/tag/">
+                        
+                            <i class="fa fa-tags"></i>Tags
+                        </a>
+                    </li>
+                    
+                
+                    
+                    <li>
+                        
+                        <a href="/collection/">
+                        
+                            <i class="fa fa-bookmark"></i>Collections
+                        </a>
+                    </li>
+                    
+                
+                    
+                    <li>
+                        
+                        <a href="/demo/">
+                        
+                            <i class="fa fa-play"></i>Demo
+                        </a>
+                    </li>
+                    
+                
+                    
+                    <li>
+                        
+                        <a href="/about/">
+                        
+                            <i class="fa fa-heart"></i>About
+                        </a>
+                    </li>
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+            </ul>
+        </nav>
+    </div>
+</header>
+
+
+        <div class="page clearfix" post>
+    <div class="left">
+        <h1>angr 仿真管理器</h1>
+        <div class="label">
+
+            <div class="label-card">
+                <i class="fa fa-calendar"></i>2017-12-09
+            </div>
+
+            <div class="label-card">
+                <i class="fa fa-user"></i>zaipingy
+                
+            </div>
+
+            <div class="label-card">
+                
+            </div>
+
+            <div class="label-card">
+            
+
+
+<!-- <span class="point">•</span> -->
+<span class="categories">
+  <i class="fa fa-th-list"></i>
+  
+    
+        <a href="/category/#angr" title="Category: angr" rel="category">angr</a>
+    
+  
+
+  <!-- <span class="point">•</span> -->
+</span>
+
+
+            </div>
+
+            <div class="label-card">
+            
+<!-- <span class="point">•</span> -->
+<span class="pageTag">
+  <i class="fa fa-tags"></i>
+  
+    
+        <!--a href="/tag/#angr" title="Tag: angr" rel="tag">angr</a-->
+        <a href="/tag/#angr" title="Tag: angr" rel="tag">angr</a>
+    
+  
+
+</span>
+
+            </div>
+
+        </div>
+        <hr>
+        <article itemscope itemtype="http://schema.org/BlogPosting">
+        
+<p>仿真管理器就是程序符号执行状态的一个管理器，可以对这些状态进行过滤，执行，合并等等。
+首先，构造仿真管理器：</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>import angr
+&gt;&gt;&gt; proj = angr.Project('examples/fauxware/fauxware', auto_load_libs=False)
+&gt;&gt;&gt; state = proj.factory.entry_state()
+&gt;&gt;&gt; simgr = proj.factory.simgr(state)
+</code></pre></div></div>
+
+<p>这是得到程序入口处的地址，然后构造仿真管理器，这样这个管理器的开始状态就在这个入口地址。他有几个常用的属性：</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&gt;&gt;&gt; simgr.active
+[&lt;SimState @ 0x400580&gt;]
+
+&gt;&gt;&gt; simgr.step()
+&gt;&gt;&gt; simgr.active
+[&lt;SimState @ 0x400540&gt;]
+</code></pre></div></div>
+<p>active 就是当前管理器所在的地址，也就是start()函数的地址，step()后程序向下执行到一个要跳转的地方，这个二进制文件中就是跳到main()函数的地址。</p>
+
+<p>我们可以通过active()函数来快速的让程序执行到我们想要到的地方：</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code># Step until the first symbolic branch
+&gt;&gt;&gt; while len(simgr.active) == 1:
+...    simgr.step()
+
+&gt;&gt;&gt; simgr
+&lt;SimulationManager with 2 active&gt;
+&gt;&gt;&gt; simgr.active
+[&lt;SimState @ 0x400692&gt;, &lt;SimState @ 0x400699&gt;]
+</code></pre></div></div>
+<p>让程序一直运行，直到程序有了两个分支的时候，也就是当程序出现判断的时候，停止。</p>
+
+<p>或者使用run()函数，直接让程序一直向下执行：</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code># Step until everything terminates
+&gt;&gt;&gt; simgr.run()
+&gt;&gt;&gt; simgr
+&lt;SimulationManager with 3 deadended&gt;
+</code></pre></div></div>
+<p>因为没有下断点，所以程序会一直执行，直到结束，退出。</p>
+
+<p>可以用explore()函数来搜索一些你需要的函数，angr中的例子：</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&gt;&gt;&gt; proj = angr.Project('examples/CSCI-4968-MBE/challenges/crackme0x00a/crackme0x00a')
+&gt;&gt;&gt; simgr = proj.factory.simgr()
+&gt;&gt;&gt; simgr.explore(find=lambda s: "Congrats" in s.posix.dumps(1))
+&lt;SimulationManager with 1 active, 1 found&gt;
+&gt;&gt;&gt; s = simgr.found[0]
+&gt;&gt;&gt; print s.posix.dumps(1)
+Enter password: Congrats!
+
+&gt;&gt;&gt; flag = s.posix.dumps(0)
+&gt;&gt;&gt; print(flag)
+g00dJ0B!
+</code></pre></div></div>
+<p>find参数是构造的限制条件，还可以使用avoid参数，来过滤一些不想要执行的函数，来减少执行时间。</p>
+
+        </article>
+        <hr>
+
+        
+        
+            
+            
+                
+                    
+                
+            
+                
+                    
+                
+            
+                
+                    
+                
+            
+        
+            
+            
+                
+                    
+                
+            
+                
+                    
+                
+            
+                
+                    
+                
+            
+        
+            
+            
+                
+                    
+                
+            
+        
+            
+            
+                
+                    
+                
+            
+                
+                    
+                
+            
+        
+            
+            
+                
+                    
+                        
+                        <h2 id="similar_posts">Similar Posts</h2>
+                        <ul>
+                        
+                        <li class="relatedPost">
+                            <a href="/2017/12/09/angr-%E6%96%AD%E7%82%B9/">angr 断点
+                            
+                            </a>
+                        </li>
+                        
+                        
+                    
+                
+            
+        
+            
+            
+                
+                    
+                
+            
+                
+                    
+                
+            
+                
+                    
+                
+            
+        
+            
+            
+                
+                    
+                
+            
+                
+                    
+                
+            
+                
+                    
+                
+            
+        
+            
+            
+                
+                    
+                        
+                        <li class="relatedPost">
+                            <a href="/2017/12/07/angr-Solver-Engine/">angr-Solver Engine
+                            
+                            </a>
+                        </li>
+                        
+                        
+                    
+                
+            
+        
+            
+            
+                
+                    
+                
+            
+                
+                    
+                
+            
+                
+                    
+                
+            
+        
+            
+            
+                
+                    
+                        
+                        <li class="relatedPost">
+                            <a href="/2017/12/06/angr-%E5%AD%A6%E4%B9%A0/">angr 学习
+                            
+                            </a>
+                        </li>
+                        
+                        
+                    
+                
+            
+        
+        
+            </ul>
+        
+
+        <div class="post-recent">
+    <div class="pre">
+        
+        <p><strong>上一篇</strong> <a href="/2017/12/08/%E7%89%9B%E5%AE%A2%E7%BC%96%E7%A8%8B12.8/">牛客刷题</a></p>
+        
+    </div>
+    <div class="nex">
+
+        
+        <p><strong>下一篇</strong> <a href="/2017/12/09/angr-%E6%96%AD%E7%82%B9/">angr 断点</a></p>
+        
+    </div>
+</div>
+
+
+        <h2 id="comments">Comments</h2>
+        
+
+
+<div id="disqus_thread"></div>
+<script>
+    /**
+     * RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+     * LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables
+     */
+
+    var disqus_config = function() {
+        this.page.url = 'http://localhost:4000/2017/12/09/angr-%E4%BB%BF%E7%9C%9F%E7%AE%A1%E7%90%86%E5%99%A8/'; // Replace PAGE_URL with your page's canonical URL variable
+        this.page.identifier = 'http://localhost:4000/2017/12/09/angr-%E4%BB%BF%E7%9C%9F%E7%AE%A1%E7%90%86%E5%99%A8/'; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+    };
+
+    (function() { // DON'T EDIT BELOW THIS LINE
+        var d = document,
+            s = d.createElement('script');
+
+        s.src = '//zyuan.disqus.com/embed.js';
+
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+
+
+
+
+    </div>
+    <button class="anchor"><i class="fa fa-anchor"></i></button>
+    <div class="right">
+        <div class="wrap">
+
+            <!-- Content -->
+            <div class="side content">
+                <div>
+                    Content
+                </div>
+                <ul id="content-side" class="content-ul">
+                    
+                    <li><a href="#similar_posts">Similar Posts</a></li>
+                    
+                    <li><a href="#comments">Comments</a></li>
+                </ul>
+            </div>
+            <!-- 其他div框放到这里 -->
+            <!-- <div class="side">bbbb</div> -->
+        </div>
+    </div>
+</div>
+<script>
+/**
+ * target _blank
+ */
+(function() {
+    var aTags = document.querySelectorAll('article a:not([id])')
+    for (var i = 0; i < aTags.length; i++) {
+        aTags[i].setAttribute('target', '_blank')
+    }
+}());
+</script>
+<script src="/js/pageContent.js " charset="utf-8"></script>
+
+
+    <footer class="site-footer">
+
+
+    <div class="wrapper">
+
+        <p class="description">
+             为所当为，顺气自然 
+        </p>
+        <p class="contact">
+            Contact me at:         
+        </p>
+        <p>
+            本站总访问量<span id="busuanzi_value_site_pv"></span>次，本站访客数<span id="busuanzi_value_site_uv"></span>人次，本文总阅读量<span id="busuanzi_value_page_pv"></span>次
+        </p>
+        <p class="power">
+            <span>
+                Site powered by <a href="https://jekyllrb.com/">Jekyll</a> & <a href="https://pages.github.com/">Github Pages</a>.
+            </span>
+            <span>
+                Theme designed by <a href="https://github.com/Gaohaoyang">HyG</a>.
+            </span>
+        </p>
+    </div>
+</footer>
+<script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+    <div class="back-to-top">
+    <a href="#top" data-scroll>
+        <i class="fa fa-arrow-up" aria-hidden="true"></i>
+    </a>
+</div>
+
+    <script src=" /js/main.js " charset="utf-8"></script>
+    <script src=" /js/smooth-scroll.min.js " charset="utf-8"></script>
+    <script type="text/javascript">
+      smoothScroll.init({
+        speed: 500, // Integer. How fast to complete the scroll in milliseconds
+        easing: 'easeInOutCubic', // Easing pattern to use
+        offset: 20, // Integer. How far to offset the scrolling anchor location in pixels
+      });
+    </script>
+    <!-- <script src=" /js/scroll.min.js " charset="utf-8"></script> -->
+  </body>
+
+</html>

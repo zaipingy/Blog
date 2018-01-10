@@ -1,0 +1,654 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>angr 学习</title>
+    <meta name="description" content="  加载文件加载文件需要分析的二进制文件。&gt;&gt;&gt; import angr&gt;&gt;&gt; proj = angr.Project('/bin/true')">
+
+    <link rel="shortcut icon" href="/favicon.ico?" type="image/x-icon">
+    <link rel="icon" href="/favicon.ico?" type="image/x-icon">
+    <link rel="stylesheet" href="https://cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://at.alicdn.com/t/font_8v3czwksspqlg14i.css">
+    <link rel="stylesheet" href="/css/main.css ">
+    <link rel="canonical" href="http://localhost:4000/2017/12/06/angr-%E5%AD%A6%E4%B9%A0/">
+    <link rel="alternate" type="application/rss+xml" title="zaipingy" href="http://localhost:4000/feed.xml ">
+
+
+
+    <script>
+    // google analytics
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+      ga('create', 'UA-112183550-1', 'auto');
+      ga('send', 'pageview');
+
+    </script>
+
+
+
+</head>
+
+
+  <body>
+
+    <header id="top">
+    <div class="wrapper">
+        <a href="/" class="brand">zaipingy</a>
+        <small>My Blog</small>
+        <button id="headerMenu" class="menu"><i class="fa fa-bars"></i></button>
+        <nav id="headerNav">
+            <ul>
+                <li>
+                    
+                    <a href="/">
+                    
+                        <i class="fa fa-home"></i>Home
+                    </a>
+                </li>
+
+                
+                    
+                    <li>
+                        
+                        <a href="/archive/">
+                        
+                            <i class="fa fa-archive"></i>Archives
+                        </a>
+                    </li>
+                    
+                
+                    
+                    <li>
+                        
+                        <a href="/category/">
+                        
+                            <i class="fa fa-th-list"></i>Categories
+                        </a>
+                    </li>
+                    
+                
+                    
+                    <li>
+                        
+                        <a href="/tag/">
+                        
+                            <i class="fa fa-tags"></i>Tags
+                        </a>
+                    </li>
+                    
+                
+                    
+                    <li>
+                        
+                        <a href="/collection/">
+                        
+                            <i class="fa fa-bookmark"></i>Collections
+                        </a>
+                    </li>
+                    
+                
+                    
+                    <li>
+                        
+                        <a href="/demo/">
+                        
+                            <i class="fa fa-play"></i>Demo
+                        </a>
+                    </li>
+                    
+                
+                    
+                    <li>
+                        
+                        <a href="/about/">
+                        
+                            <i class="fa fa-heart"></i>About
+                        </a>
+                    </li>
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+            </ul>
+        </nav>
+    </div>
+</header>
+
+
+        <div class="page clearfix" post>
+    <div class="left">
+        <h1>angr 学习</h1>
+        <div class="label">
+
+            <div class="label-card">
+                <i class="fa fa-calendar"></i>2017-12-06
+            </div>
+
+            <div class="label-card">
+                <i class="fa fa-user"></i>zaipingy
+                
+            </div>
+
+            <div class="label-card">
+                
+            </div>
+
+            <div class="label-card">
+            
+
+
+<!-- <span class="point">•</span> -->
+<span class="categories">
+  <i class="fa fa-th-list"></i>
+  
+    
+        <a href="/category/#angr" title="Category: angr" rel="category">angr</a>
+    
+  
+
+  <!-- <span class="point">•</span> -->
+</span>
+
+
+            </div>
+
+            <div class="label-card">
+            
+<!-- <span class="point">•</span> -->
+<span class="pageTag">
+  <i class="fa fa-tags"></i>
+  
+    
+        <!--a href="/tag/#angr" title="Tag: angr" rel="tag">angr</a-->
+        <a href="/tag/#angr" title="Tag: angr" rel="tag">angr</a>
+    
+  
+
+</span>
+
+            </div>
+
+        </div>
+        <hr>
+        <article itemscope itemtype="http://schema.org/BlogPosting">
+        <ul id="markdown-toc">
+  <li><a href="#加载文件" id="markdown-toc-加载文件">加载文件</a></li>
+  <li><a href="#arch" id="markdown-toc-arch">arch</a></li>
+  <li><a href="#loader" id="markdown-toc-loader">loader</a></li>
+  <li><a href="#factory" id="markdown-toc-factory">factory</a>    <ul>
+      <li><a href="#factoryblockaddr" id="markdown-toc-factoryblockaddr">factory.block(addr)</a></li>
+      <li><a href="#states" id="markdown-toc-states">states</a></li>
+    </ul>
+  </li>
+  <li><a href="#simulation-managers" id="markdown-toc-simulation-managers">Simulation Managers</a></li>
+  <li><a href="#analyses" id="markdown-toc-analyses">Analyses</a></li>
+</ul>
+
+<h2 id="加载文件">加载文件</h2>
+<p>需要分析的二进制文件。</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&gt;&gt;&gt; import angr
+&gt;&gt;&gt; proj = angr.Project('/bin/true')
+</code></pre></div></div>
+
+<p>对该文件分析的一些信息：</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&gt;&gt;&gt; import monkeyhex # this will format numerical results in hexadecimal
+&gt;&gt;&gt; proj.arch
+&lt;Arch AMD64 (LE)&gt;
+&gt;&gt;&gt; proj.entry
+0x401670
+&gt;&gt;&gt; proj.filename
+'/bin/true'
+</code></pre></div></div>
+<h2 id="arch">arch</h2>
+<p>该文件的架构信息
+    1. arch.bits
+    2. arch.btyes
+    3. arch.name
+    4.arch.memory_endness</p>
+
+<p>entry是二进制文件的入口地址。</p>
+
+<p>filename 是该二进制文件的绝对路径+文件名。</p>
+
+<h2 id="loader">loader</h2>
+<p>有一个CLE模块是用来处理该二进制文件加载后的虚拟地址空间的。而loader就是CLE模块处理后的结果。</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&gt;&gt;&gt; proj.loader
+&lt;Loaded true, maps [0x400000:0x5004000]&gt;
+
+&gt;&gt;&gt; proj.loader.shared_objects # may look a little different for you!
+{'ld-linux-x86-64.so.2': &lt;ELF Object ld-2.24.so, maps [0x2000000:0x2227167]&gt;,
+ 'libc.so.6': &lt;ELF Object libc-2.24.so, maps [0x1000000:0x13c699f]&gt;}
+
+&gt;&gt;&gt; proj.loader.min_addr
+0x400000
+&gt;&gt;&gt; proj.loader.max_addr
+0x5004000
+
+&gt;&gt;&gt; proj.loader.main_object  # we've loaded several binaries into this project. Here's the main one!
+&lt;ELF Object true, maps [0x400000:0x60721f]&gt;
+
+&gt;&gt;&gt; proj.loader.main_object.execstack  # sample query: does this binary have an executable stack?
+False
+&gt;&gt;&gt; proj.loader.main_object.pic  # sample query: is this binary position-independent?
+True
+</code></pre></div></div>
+<ul>
+  <li>shared_objects 加载二进制文件还需要的一些库？</li>
+  <li>loader.min_addr 最小地址</li>
+  <li>loader.max_addr 最大地址</li>
+</ul>
+
+<h2 id="factory">factory</h2>
+<h3 id="factoryblockaddr">factory.block(addr)</h3>
+<p>传入一个地址，然后会返回一个块，根据这个块的一些方法，可以得到很多这个块的信息。</p>
+
+<ul>
+  <li>block.pp()     <br />
+            pretty-print 会返回该快的汇编语言</li>
+  <li>block.instructions 
+            该地址有多少条指令</li>
+  <li>block.instructions_addr
+            返回一个列表，这些指令分别在哪些地址上</li>
+  <li>block.capstone</li>
+  <li>block.vex</li>
+</ul>
+
+<h3 id="states">states</h3>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&gt;&gt;&gt; state = proj.factory.entry_state()
+&lt;SimState @ 0x401670&gt;
+</code></pre></div></div>
+<p>SimState 就是模拟程序的状态，project是整个二进制文件加载进去之后的实例化对象，而SimState就是程序具体执行时的状态。他里面包含了很多状态：
+    - 寄存器
+    - 内存
+    - 文件系统的数据</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&gt;&gt;&gt; state.regs.rip        # get the current instruction pointer
+&lt;BV64 0x401670&gt;
+&gt;&gt;&gt; state.regs.rax
+&lt;BV64 0x1c&gt;
+&gt;&gt;&gt; state.mem[proj.entry].int.resolved  # interpret the memory at the entry point as a C int
+&lt;BV32 0x8949ed31&gt;
+</code></pre></div></div>
+<p>这些状态都并不是Python 中的int类型，而是向量。这些向量都有一个length的属性用来描述他的宽度。</p>
+
+<p>Python的int类型和向量之间的<strong>转换</strong>：</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&gt;&gt;&gt; bv = state.solver.BVV(0x1234, 32)       # create a 32-bit-wide bitvector with value 0x1234
+&lt;BV32 0x1234&gt;                               # BVV stands for bitvector value
+&gt;&gt;&gt; state.solver.eval(bv)                # convert to python int
+0x1234
+</code></pre></div></div>
+<p>可以将向量存储在寄存器中，或者直接存储Int类型，它会自动进行转换成适当的大小。</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&gt;&gt;&gt; state.regs.rsi = state.solver.BVV(3, 64)
+&gt;&gt;&gt; state.regs.rsi
+&lt;BV64 0x3&gt;
+
+&gt;&gt;&gt; state.mem[0x1000].long = 4
+&gt;&gt;&gt; state.mem[0x1000].long.resolved
+&lt;BV64 0x4&gt;
+</code></pre></div></div>
+<p>mem 接口用了一些Python的magic函数。所以可能会有点难理解。</p>
+<ul>
+  <li>.resolved 是将内存中的数据转换为向量。</li>
+  <li>.concrete 是将内存中的数据转换为int类型。</li>
+</ul>
+
+<p>states中还有很多寄存器，如：</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&gt;&gt;&gt; state.regs.rdi
+&lt;BV64 reg_48_11_64{UNINITIALIZED}&gt;
+</code></pre></div></div>
+<p>64位的rdi寄存器。</p>
+
+<p>这就是<strong>符号变量</strong>，他是符号执行的基础。</p>
+
+<h2 id="simulation-managers">Simulation Managers</h2>
+
+<p>states只是描述了指定地址的程序状态，而当需要下一个点时，就不行了，于是就需要一个全局的仿真管理器。</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&gt;&gt;&gt; simgr = proj.factory.simulation_manager(state)
+&lt;SimulationManager with 1 active&gt;
+&gt;&gt;&gt; simgr.active
+[&lt;SimState @ 0x401670&gt;]
+</code></pre></div></div>
+<p>这个全局的管理器有很多隐藏的状态，如active。</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&gt;&gt;&gt; simgr.step()
+</code></pre></div></div>
+<p>这个方法可以用来执行程序，这样就改变了当前的状态，SimState对象在执行过程中被认为是不变的。可以在多轮执行时使用同一个state。</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&gt;&gt;&gt; simgr.active
+[&lt;SimState @ 0x1020300&gt;]
+&gt;&gt;&gt; simgr.active[0].regs.rip                 # new and exciting!
+&lt;BV64 0x1020300&gt;
+&gt;&gt;&gt; state.regs.rip                           # still the same!
+&lt;BV64 0x401670&gt;
+</code></pre></div></div>
+<h2 id="analyses">Analyses</h2>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&gt;&gt;&gt; proj.analyses.            # Press TAB here in ipython to get an autocomplete-listing of everything:
+ proj.analyses.BackwardSlice        proj.analyses.CongruencyCheck      proj.analyses.reload_analyses       
+ proj.analyses.BinaryOptimizer      proj.analyses.DDG                  proj.analyses.StaticHooker          
+ proj.analyses.BinDiff              proj.analyses.DFG                  proj.analyses.VariableRecovery      
+ proj.analyses.BoyScout             proj.analyses.Disassembly          proj.analyses.VariableRecoveryFast  
+ proj.analyses.CDG                  proj.analyses.GirlScout            proj.analyses.Veritesting           
+ proj.analyses.CFG                  proj.analyses.Identifier           proj.analyses.VFG                   
+ proj.analyses.CFGAccurate          proj.analyses.LoopFinder           proj.analyses.VSA_DDG               
+ proj.analyses.CFGFast              proj.analyses.Reassembler
+</code></pre></div></div>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code># Originally, when we loaded this binary it also loaded all its dependencies into the same virtual address  space
+# This is undesirable for most analysis.
+&gt;&gt;&gt; proj = angr.Project('/bin/true', auto_load_libs=False)
+&gt;&gt;&gt; cfg = proj.analyses.CFGFast()
+&lt;CFGFast Analysis Result at 0x2d85130&gt;
+
+# cfg.graph is a networkx DiGraph full of CFGNode instances
+# You should go look up the networkx APIs to learn how to use this!
+&gt;&gt;&gt; cfg.graph
+&lt;networkx.classes.digraph.DiGraph at 0x2da43a0&gt;
+&gt;&gt;&gt; len(cfg.graph.nodes())
+951
+
+# To get the CFGNode for a given address, use cfg.get_any_node
+&gt;&gt;&gt; entry_node = cfg.get_any_node(proj.entry)
+&gt;&gt;&gt; len(list(cfg.graph.successors(entry_node)))
+2
+</code></pre></div></div>
+
+
+        </article>
+        <hr>
+
+        
+        
+            
+            
+                
+                    
+                
+            
+                
+                    
+                
+            
+                
+                    
+                
+            
+        
+            
+            
+                
+                    
+                
+            
+                
+                    
+                
+            
+                
+                    
+                
+            
+        
+            
+            
+                
+                    
+                
+            
+        
+            
+            
+                
+                    
+                
+            
+                
+                    
+                
+            
+        
+            
+            
+                
+                    
+                        
+                        <h2 id="similar_posts">Similar Posts</h2>
+                        <ul>
+                        
+                        <li class="relatedPost">
+                            <a href="/2017/12/09/angr-%E6%96%AD%E7%82%B9/">angr 断点
+                            
+                            </a>
+                        </li>
+                        
+                        
+                    
+                
+            
+        
+            
+            
+                
+                    
+                        
+                        <li class="relatedPost">
+                            <a href="/2017/12/09/angr-%E4%BB%BF%E7%9C%9F%E7%AE%A1%E7%90%86%E5%99%A8/">angr 仿真管理器
+                            
+                            </a>
+                        </li>
+                        
+                        
+                    
+                
+            
+        
+            
+            
+                
+                    
+                
+            
+                
+                    
+                
+            
+                
+                    
+                
+            
+        
+            
+            
+                
+                    
+                
+            
+                
+                    
+                
+            
+                
+                    
+                
+            
+        
+            
+            
+                
+                    
+                        
+                        <li class="relatedPost">
+                            <a href="/2017/12/07/angr-Solver-Engine/">angr-Solver Engine
+                            
+                            </a>
+                        </li>
+                        
+                        
+                    
+                
+            
+        
+            
+            
+                
+                    
+                
+            
+                
+                    
+                
+            
+                
+                    
+                
+            
+        
+        
+            </ul>
+        
+
+        <div class="post-recent">
+    <div class="pre">
+        
+    </div>
+    <div class="nex">
+
+        
+        <p><strong>下一篇</strong> <a href="/2017/12/06/%E6%95%B0%E7%BB%84/">数组</a></p>
+        
+    </div>
+</div>
+
+
+        <h2 id="comments">Comments</h2>
+        
+
+
+<div id="disqus_thread"></div>
+<script>
+    /**
+     * RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+     * LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables
+     */
+
+    var disqus_config = function() {
+        this.page.url = 'http://localhost:4000/2017/12/06/angr-%E5%AD%A6%E4%B9%A0/'; // Replace PAGE_URL with your page's canonical URL variable
+        this.page.identifier = 'http://localhost:4000/2017/12/06/angr-%E5%AD%A6%E4%B9%A0/'; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+    };
+
+    (function() { // DON'T EDIT BELOW THIS LINE
+        var d = document,
+            s = d.createElement('script');
+
+        s.src = '//zyuan.disqus.com/embed.js';
+
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+
+
+
+
+    </div>
+    <button class="anchor"><i class="fa fa-anchor"></i></button>
+    <div class="right">
+        <div class="wrap">
+
+            <!-- Content -->
+            <div class="side content">
+                <div>
+                    Content
+                </div>
+                <ul id="content-side" class="content-ul">
+                    
+                    <li><a href="#similar_posts">Similar Posts</a></li>
+                    
+                    <li><a href="#comments">Comments</a></li>
+                </ul>
+            </div>
+            <!-- 其他div框放到这里 -->
+            <!-- <div class="side">bbbb</div> -->
+        </div>
+    </div>
+</div>
+<script>
+/**
+ * target _blank
+ */
+(function() {
+    var aTags = document.querySelectorAll('article a:not([id])')
+    for (var i = 0; i < aTags.length; i++) {
+        aTags[i].setAttribute('target', '_blank')
+    }
+}());
+</script>
+<script src="/js/pageContent.js " charset="utf-8"></script>
+
+
+    <footer class="site-footer">
+
+
+    <div class="wrapper">
+
+        <p class="description">
+             为所当为，顺气自然 
+        </p>
+        <p class="contact">
+            Contact me at:         
+        </p>
+        <p>
+            本站总访问量<span id="busuanzi_value_site_pv"></span>次，本站访客数<span id="busuanzi_value_site_uv"></span>人次，本文总阅读量<span id="busuanzi_value_page_pv"></span>次
+        </p>
+        <p class="power">
+            <span>
+                Site powered by <a href="https://jekyllrb.com/">Jekyll</a> & <a href="https://pages.github.com/">Github Pages</a>.
+            </span>
+            <span>
+                Theme designed by <a href="https://github.com/Gaohaoyang">HyG</a>.
+            </span>
+        </p>
+    </div>
+</footer>
+<script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+    <div class="back-to-top">
+    <a href="#top" data-scroll>
+        <i class="fa fa-arrow-up" aria-hidden="true"></i>
+    </a>
+</div>
+
+    <script src=" /js/main.js " charset="utf-8"></script>
+    <script src=" /js/smooth-scroll.min.js " charset="utf-8"></script>
+    <script type="text/javascript">
+      smoothScroll.init({
+        speed: 500, // Integer. How fast to complete the scroll in milliseconds
+        easing: 'easeInOutCubic', // Easing pattern to use
+        offset: 20, // Integer. How far to offset the scrolling anchor location in pixels
+      });
+    </script>
+    <!-- <script src=" /js/scroll.min.js " charset="utf-8"></script> -->
+  </body>
+
+</html>

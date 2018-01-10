@@ -5,9 +5,283 @@
     <description></description>
     <link>http://localhost:4000/</link>
     <atom:link href="http://localhost:4000/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Tue, 09 Jan 2018 15:54:22 +0800</pubDate>
-    <lastBuildDate>Tue, 09 Jan 2018 15:54:22 +0800</lastBuildDate>
+    <pubDate>Wed, 10 Jan 2018 10:36:09 +0800</pubDate>
+    <lastBuildDate>Wed, 10 Jan 2018 10:36:09 +0800</lastBuildDate>
     <generator>Jekyll v3.6.2</generator>
+    
+      <item>
+        <title>牛客刷题</title>
+        <description>&lt;ul id=&quot;markdown-toc&quot;&gt;
+  &lt;li&gt;&lt;a href=&quot;#合唱团&quot; id=&quot;markdown-toc-合唱团&quot;&gt;合唱团&lt;/a&gt;    &lt;ul&gt;
+      &lt;li&gt;&lt;a href=&quot;#题目描述&quot; id=&quot;markdown-toc-题目描述&quot;&gt;题目描述&lt;/a&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h1 id=&quot;合唱团&quot;&gt;合唱团&lt;/h1&gt;
+&lt;h2 id=&quot;题目描述&quot;&gt;题目描述&lt;/h2&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;有 n 个学生站成一排，每个学生有一个能力值，牛牛想从这 n 个学生中按照顺序选取 k 名学生，要求相邻两个学生的位置编号的差不超过 d，使得这 k 个学生的能力值的乘积最大，你能返回最大的乘积吗？
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+</description>
+        <pubDate>Wed, 27 Dec 2017 00:00:00 +0800</pubDate>
+        <link>http://localhost:4000/2017/12/27/%E7%89%9B%E5%AE%A2%E7%BC%96%E7%A8%8B12.27-%E5%90%88%E5%94%B1%E5%9B%A2/</link>
+        <guid isPermaLink="true">http://localhost:4000/2017/12/27/%E7%89%9B%E5%AE%A2%E7%BC%96%E7%A8%8B12.27-%E5%90%88%E5%94%B1%E5%9B%A2/</guid>
+        
+        <category>牛客</category>
+        
+        <category>算法</category>
+        
+        <category>C</category>
+        
+        
+        <category>牛客</category>
+        
+      </item>
+    
+      <item>
+        <title>牛客刷题</title>
+        <description>&lt;ul id=&quot;markdown-toc&quot;&gt;
+  &lt;li&gt;&lt;a href=&quot;#最强大脑&quot; id=&quot;markdown-toc-最强大脑&quot;&gt;最强大脑&lt;/a&gt;    &lt;ul&gt;
+      &lt;li&gt;&lt;a href=&quot;#题目描述&quot; id=&quot;markdown-toc-题目描述&quot;&gt;题目描述&lt;/a&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+最近在看C语言，所以在牛客上做的题就用C去做了。
+
+挑一些比较有意思的题，记录一下。
+
+&lt;h1 id=&quot;最强大脑&quot;&gt;最强大脑&lt;/h1&gt;
+&lt;h2 id=&quot;题目描述&quot;&gt;题目描述&lt;/h2&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;小B乘火车和朋友们一起在N市到M市之间旅行。她在路途中时睡时醒。当她醒来观看窗外的风景时，注意到每个火车站都有一种特别颜色的旗帜，但是她看到的旗帜仅仅是经过的一小部分。小B在乘车过程中有两次清醒的时间，她到达旅程终点时处于睡梦中。出站时，她和朋友们谈论着一路的见闻，朋友们觉得很有意思，他们把N到和M之间经过车站的旗帜颜色依次列出来，然后告诉你小B记得的旗帜颜色序列，让你判断小B究竟是从N和M之间哪些方向才能看到所说颜色的旗帜，还是根本就不可能看到？颜色用字母代表，相同的字母代表相同的颜色，不同的字母则表示不同的颜色。
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+</description>
+        <pubDate>Tue, 26 Dec 2017 00:00:00 +0800</pubDate>
+        <link>http://localhost:4000/2017/12/26/%E7%89%9B%E5%AE%A2%E7%BC%96%E7%A8%8B12.26/</link>
+        <guid isPermaLink="true">http://localhost:4000/2017/12/26/%E7%89%9B%E5%AE%A2%E7%BC%96%E7%A8%8B12.26/</guid>
+        
+        <category>牛客</category>
+        
+        <category>算法</category>
+        
+        <category>C</category>
+        
+        
+        <category>牛客</category>
+        
+      </item>
+    
+      <item>
+        <title>robot framework</title>
+        <description>
+所有test case写在一个文件中，这个文件构成一个test suite，多个文件构成一个文件夹，这个文件夹也是一个test suite。也就是说test suite可以包含test suite。
+
+</description>
+        <pubDate>Thu, 21 Dec 2017 00:00:00 +0800</pubDate>
+        <link>http://localhost:4000/2017/12/21/robot-framework/</link>
+        <guid isPermaLink="true">http://localhost:4000/2017/12/21/robot-framework/</guid>
+        
+        <category>robot-framework</category>
+        
+        
+        <category>robot-framework</category>
+        
+      </item>
+    
+      <item>
+        <title>VPS+flask微信公众号开发</title>
+        <description>
+前段时间买了搬瓦工的vps， 搭了ss和这个博客，总感觉有点浪费，然后就去试试微信公众号的开发。
+
+</description>
+        <pubDate>Mon, 11 Dec 2017 00:00:00 +0800</pubDate>
+        <link>http://localhost:4000/2017/12/11/%E6%90%AC%E7%93%A6%E5%B7%A5vps-+-flask-%E5%81%9A%E5%BE%AE%E4%BF%A1%E5%85%AC%E4%BC%97%E5%8F%B7%E5%BC%80%E5%8F%91/</link>
+        <guid isPermaLink="true">http://localhost:4000/2017/12/11/%E6%90%AC%E7%93%A6%E5%B7%A5vps-+-flask-%E5%81%9A%E5%BE%AE%E4%BF%A1%E5%85%AC%E4%BC%97%E5%8F%B7%E5%BC%80%E5%8F%91/</guid>
+        
+        <category>VPS</category>
+        
+        <category>wechat</category>
+        
+        
+        <category>VPS</category>
+        
+      </item>
+    
+      <item>
+        <title>angr 断点</title>
+        <description>
+angr支持下断点：
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&amp;gt;&amp;gt;&amp;gt; import angr
+&amp;gt;&amp;gt;&amp;gt; b = angr.Project('examples/fauxware/fauxware')
+
+# get our state
+&amp;gt;&amp;gt;&amp;gt; s = b.factory.entry_state()
+
+# add a breakpoint. This breakpoint will drop into ipdb right before a memory write happens.
+&amp;gt;&amp;gt;&amp;gt; s.inspect.b('mem_write')
+
+# on the other hand, we can have a breakpoint trigger right *after* a memory write happens. 
+# we can also have a callback function run instead of opening ipdb.
+&amp;gt;&amp;gt;&amp;gt; def debug_func(state):
+...     print &quot;State %s is about to do a memory write!&quot;
+
+&amp;gt;&amp;gt;&amp;gt; s.inspect.b('mem_write', when=angr.BP_AFTER, action=debug_func)
+
+# or, you can have it drop you in an embedded IPython!
+&amp;gt;&amp;gt;&amp;gt; s.inspect.b('mem_write', when=angr.BP_AFTER, action=angr.BP_IPYTHON)
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+</description>
+        <pubDate>Sat, 09 Dec 2017 00:00:00 +0800</pubDate>
+        <link>http://localhost:4000/2017/12/09/angr-%E6%96%AD%E7%82%B9/</link>
+        <guid isPermaLink="true">http://localhost:4000/2017/12/09/angr-%E6%96%AD%E7%82%B9/</guid>
+        
+        <category>angr</category>
+        
+        
+        <category>angr</category>
+        
+      </item>
+    
+      <item>
+        <title>angr 仿真管理器</title>
+        <description>
+仿真管理器就是程序符号执行状态的一个管理器，可以对这些状态进行过滤，执行，合并等等。
+首先，构造仿真管理器：
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;import angr
+&amp;gt;&amp;gt;&amp;gt; proj = angr.Project('examples/fauxware/fauxware', auto_load_libs=False)
+&amp;gt;&amp;gt;&amp;gt; state = proj.factory.entry_state()
+&amp;gt;&amp;gt;&amp;gt; simgr = proj.factory.simgr(state)
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+</description>
+        <pubDate>Sat, 09 Dec 2017 00:00:00 +0800</pubDate>
+        <link>http://localhost:4000/2017/12/09/angr-%E4%BB%BF%E7%9C%9F%E7%AE%A1%E7%90%86%E5%99%A8/</link>
+        <guid isPermaLink="true">http://localhost:4000/2017/12/09/angr-%E4%BB%BF%E7%9C%9F%E7%AE%A1%E7%90%86%E5%99%A8/</guid>
+        
+        <category>angr</category>
+        
+        
+        <category>angr</category>
+        
+      </item>
+    
+      <item>
+        <title>牛客刷题</title>
+        <description>&lt;ul id=&quot;markdown-toc&quot;&gt;
+  &lt;li&gt;&lt;a href=&quot;#袋鼠过河&quot; id=&quot;markdown-toc-袋鼠过河&quot;&gt;袋鼠过河：&lt;/a&gt;    &lt;ul&gt;
+      &lt;li&gt;&lt;a href=&quot;#题目描述&quot; id=&quot;markdown-toc-题目描述&quot;&gt;题目描述&lt;/a&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h1 id=&quot;袋鼠过河&quot;&gt;袋鼠过河：&lt;/h1&gt;
+&lt;h2 id=&quot;题目描述&quot;&gt;题目描述&lt;/h2&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;一只袋鼠要从河这边跳到河对岸，河很宽，但是河中间打了很多桩子，每隔一米就有一个，每个桩子上都有一个弹簧，袋鼠跳到弹簧上就可以跳的更远。每个弹簧力量不同，用一个数字代表它的力量，如果弹簧力量为5，就代表袋鼠下一跳最多能够跳5米，如果为0，就会陷进去无法继续跳跃。河流一共N米宽，袋鼠初始位置就在第一个弹簧上面，要跳到最后一个弹簧之后就算过河了，给定每个弹簧的力量，求袋鼠最少需要多少跳能够到达对岸。如果无法到达输出-1
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+</description>
+        <pubDate>Fri, 08 Dec 2017 00:00:00 +0800</pubDate>
+        <link>http://localhost:4000/2017/12/08/%E7%89%9B%E5%AE%A2%E7%BC%96%E7%A8%8B12.8/</link>
+        <guid isPermaLink="true">http://localhost:4000/2017/12/08/%E7%89%9B%E5%AE%A2%E7%BC%96%E7%A8%8B12.8/</guid>
+        
+        <category>牛客</category>
+        
+        <category>Python</category>
+        
+        <category>算法</category>
+        
+        
+        <category>牛客</category>
+        
+      </item>
+    
+      <item>
+        <title>牛客刷题</title>
+        <description>&lt;ul id=&quot;markdown-toc&quot;&gt;
+  &lt;li&gt;&lt;a href=&quot;#树的高度&quot; id=&quot;markdown-toc-树的高度&quot;&gt;树的高度&lt;/a&gt;    &lt;ul&gt;
+      &lt;li&gt;&lt;a href=&quot;#题目描述&quot; id=&quot;markdown-toc-题目描述&quot;&gt;题目描述&lt;/a&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h1 id=&quot;树的高度&quot;&gt;树的高度&lt;/h1&gt;
+&lt;h2 id=&quot;题目描述&quot;&gt;题目描述&lt;/h2&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;现在有一棵合法的二叉树，树的节点都是用数字表示，现在给定这棵树上所有的父子关系，求这棵树的高度
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+</description>
+        <pubDate>Thu, 07 Dec 2017 00:00:00 +0800</pubDate>
+        <link>http://localhost:4000/2017/12/07/%E7%89%9B%E5%AE%A2%E7%BC%96%E7%A8%8B/</link>
+        <guid isPermaLink="true">http://localhost:4000/2017/12/07/%E7%89%9B%E5%AE%A2%E7%BC%96%E7%A8%8B/</guid>
+        
+        <category>牛客</category>
+        
+        <category>Python</category>
+        
+        <category>算法</category>
+        
+        
+        <category>牛客</category>
+        
+      </item>
+    
+      <item>
+        <title>angr-Solver Engine</title>
+        <description>
+导入二进制文件：
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&amp;gt;&amp;gt;&amp;gt; import angr, monkeyhex
+&amp;gt;&amp;gt;&amp;gt; proj = angr.Project('/bin/true')
+&amp;gt;&amp;gt;&amp;gt; state = proj.factory.entry_state()
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+angr中的 &lt;strong&gt;bitvector&lt;/strong&gt; 用有界整数的语义来解释的话就是&lt;strong&gt;位序列或者位向量&lt;/strong&gt;。
+
+</description>
+        <pubDate>Thu, 07 Dec 2017 00:00:00 +0800</pubDate>
+        <link>http://localhost:4000/2017/12/07/angr-Solver-Engine/</link>
+        <guid isPermaLink="true">http://localhost:4000/2017/12/07/angr-Solver-Engine/</guid>
+        
+        <category>angr</category>
+        
+        
+        <category>angr</category>
+        
+      </item>
+    
+      <item>
+        <title>数组</title>
+        <description>&lt;ul id=&quot;markdown-toc&quot;&gt;
+  &lt;li&gt;&lt;a href=&quot;#题目描述&quot; id=&quot;markdown-toc-题目描述&quot;&gt;题目描述&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;题目描述&quot;&gt;题目描述&lt;/h3&gt;
+设有n个正整数，将他们连接成一排，组成一个最大的多位整数。
+如:n=3时，3个整数13,312,343,连成的最大整数为34331213。
+如:n=4时,4个整数7,13,4,246连接成的最大整数为7424613。
+
+</description>
+        <pubDate>Wed, 06 Dec 2017 00:00:00 +0800</pubDate>
+        <link>http://localhost:4000/2017/12/06/%E6%95%B0%E7%BB%84/</link>
+        <guid isPermaLink="true">http://localhost:4000/2017/12/06/%E6%95%B0%E7%BB%84/</guid>
+        
+        <category>算法</category>
+        
+        <category>牛客</category>
+        
+        <category>Python</category>
+        
+        
+        <category>牛客</category>
+        
+      </item>
     
   </channel>
 </rss>

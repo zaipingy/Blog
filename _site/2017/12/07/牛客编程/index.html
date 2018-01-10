@@ -1,0 +1,884 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>牛客刷题</title>
+    <meta name="description" content="  树的高度          题目描述      树的高度题目描述现在有一棵合法的二叉树，树的节点都是用数字表示，现在给定这棵树上所有的父子关系，求这棵树的高度">
+
+    <link rel="shortcut icon" href="/favicon.ico?" type="image/x-icon">
+    <link rel="icon" href="/favicon.ico?" type="image/x-icon">
+    <link rel="stylesheet" href="https://cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://at.alicdn.com/t/font_8v3czwksspqlg14i.css">
+    <link rel="stylesheet" href="/css/main.css ">
+    <link rel="canonical" href="http://localhost:4000/2017/12/07/%E7%89%9B%E5%AE%A2%E7%BC%96%E7%A8%8B/">
+    <link rel="alternate" type="application/rss+xml" title="zaipingy" href="http://localhost:4000/feed.xml ">
+
+
+
+    <script>
+    // google analytics
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+      ga('create', 'UA-112183550-1', 'auto');
+      ga('send', 'pageview');
+
+    </script>
+
+
+
+</head>
+
+
+  <body>
+
+    <header id="top">
+    <div class="wrapper">
+        <a href="/" class="brand">zaipingy</a>
+        <small>My Blog</small>
+        <button id="headerMenu" class="menu"><i class="fa fa-bars"></i></button>
+        <nav id="headerNav">
+            <ul>
+                <li>
+                    
+                    <a href="/">
+                    
+                        <i class="fa fa-home"></i>Home
+                    </a>
+                </li>
+
+                
+                    
+                    <li>
+                        
+                        <a href="/archive/">
+                        
+                            <i class="fa fa-archive"></i>Archives
+                        </a>
+                    </li>
+                    
+                
+                    
+                    <li>
+                        
+                        <a href="/category/">
+                        
+                            <i class="fa fa-th-list"></i>Categories
+                        </a>
+                    </li>
+                    
+                
+                    
+                    <li>
+                        
+                        <a href="/tag/">
+                        
+                            <i class="fa fa-tags"></i>Tags
+                        </a>
+                    </li>
+                    
+                
+                    
+                    <li>
+                        
+                        <a href="/collection/">
+                        
+                            <i class="fa fa-bookmark"></i>Collections
+                        </a>
+                    </li>
+                    
+                
+                    
+                    <li>
+                        
+                        <a href="/demo/">
+                        
+                            <i class="fa fa-play"></i>Demo
+                        </a>
+                    </li>
+                    
+                
+                    
+                    <li>
+                        
+                        <a href="/about/">
+                        
+                            <i class="fa fa-heart"></i>About
+                        </a>
+                    </li>
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+            </ul>
+        </nav>
+    </div>
+</header>
+
+
+        <div class="page clearfix" post>
+    <div class="left">
+        <h1>牛客刷题</h1>
+        <div class="label">
+
+            <div class="label-card">
+                <i class="fa fa-calendar"></i>2017-12-07
+            </div>
+
+            <div class="label-card">
+                <i class="fa fa-user"></i>zaipingy
+                
+            </div>
+
+            <div class="label-card">
+                
+            </div>
+
+            <div class="label-card">
+            
+
+
+<!-- <span class="point">•</span> -->
+<span class="categories">
+  <i class="fa fa-th-list"></i>
+  
+    
+        <a href="/category/#牛客" title="Category: 牛客" rel="category">牛客</a>
+    
+  
+
+  <!-- <span class="point">•</span> -->
+</span>
+
+
+            </div>
+
+            <div class="label-card">
+            
+<!-- <span class="point">•</span> -->
+<span class="pageTag">
+  <i class="fa fa-tags"></i>
+  
+    
+        <!--a href="/tag/#%E7%89%9B%E5%AE%A2" title="Tag: 牛客" rel="tag">牛客</a-->
+        <a href="/tag/#牛客" title="Tag: 牛客" rel="tag">牛客</a>&nbsp;
+    
+        <!--a href="/tag/#Python" title="Tag: Python" rel="tag">Python</a-->
+        <a href="/tag/#Python" title="Tag: Python" rel="tag">Python</a>&nbsp;
+    
+        <!--a href="/tag/#%E7%AE%97%E6%B3%95" title="Tag: 算法" rel="tag">算法</a-->
+        <a href="/tag/#算法" title="Tag: 算法" rel="tag">算法</a>
+    
+  
+
+</span>
+
+            </div>
+
+        </div>
+        <hr>
+        <article itemscope itemtype="http://schema.org/BlogPosting">
+        <ul id="markdown-toc">
+  <li><a href="#树的高度" id="markdown-toc-树的高度">树的高度</a>    <ul>
+      <li><a href="#题目描述" id="markdown-toc-题目描述">题目描述</a></li>
+      <li><a href="#输入描述" id="markdown-toc-输入描述">输入描述:</a></li>
+      <li><a href="#输出描述" id="markdown-toc-输出描述">输出描述:</a></li>
+      <li><a href="#示例1" id="markdown-toc-示例1">示例1</a>        <ul>
+          <li><a href="#输入" id="markdown-toc-输入">输入</a></li>
+          <li><a href="#输出" id="markdown-toc-输出">输出</a></li>
+        </ul>
+      </li>
+      <li><a href="#代码" id="markdown-toc-代码">代码</a></li>
+    </ul>
+  </li>
+  <li><a href="#句子反转" id="markdown-toc-句子反转">句子反转</a>    <ul>
+      <li><a href="#题目描述-1" id="markdown-toc-题目描述-1">题目描述</a></li>
+      <li><a href="#输入描述-1" id="markdown-toc-输入描述-1">输入描述:</a></li>
+      <li><a href="#输出描述-1" id="markdown-toc-输出描述-1">输出描述:</a></li>
+      <li><a href="#示例1-1" id="markdown-toc-示例1-1">示例1</a>        <ul>
+          <li><a href="#输入-1" id="markdown-toc-输入-1">输入</a></li>
+          <li><a href="#输出-1" id="markdown-toc-输出-1">输出</a></li>
+        </ul>
+      </li>
+      <li><a href="#代码-1" id="markdown-toc-代码-1">代码：</a></li>
+    </ul>
+  </li>
+  <li><a href="#电话号码分身" id="markdown-toc-电话号码分身">电话号码分身</a>    <ul>
+      <li><a href="#题目描述-2" id="markdown-toc-题目描述-2">题目描述</a></li>
+      <li><a href="#输入描述-2" id="markdown-toc-输入描述-2">输入描述:</a></li>
+      <li><a href="#输出描述-2" id="markdown-toc-输出描述-2">输出描述:</a></li>
+      <li><a href="#示例1-2" id="markdown-toc-示例1-2">示例1</a>        <ul>
+          <li><a href="#输入-2" id="markdown-toc-输入-2">输入</a></li>
+          <li><a href="#输出-2" id="markdown-toc-输出-2">输出</a></li>
+        </ul>
+      </li>
+      <li><a href="#代码-2" id="markdown-toc-代码-2">代码</a></li>
+    </ul>
+  </li>
+  <li><a href="#水仙花数" id="markdown-toc-水仙花数">水仙花数</a>    <ul>
+      <li><a href="#题目描述-3" id="markdown-toc-题目描述-3">题目描述</a></li>
+      <li><a href="#输入描述-3" id="markdown-toc-输入描述-3">输入描述:</a></li>
+      <li><a href="#输出描述-3" id="markdown-toc-输出描述-3">输出描述:</a></li>
+      <li><a href="#示例1-3" id="markdown-toc-示例1-3">示例1</a>        <ul>
+          <li><a href="#输入-3" id="markdown-toc-输入-3">输入</a></li>
+          <li><a href="#输出-3" id="markdown-toc-输出-3">输出</a></li>
+        </ul>
+      </li>
+      <li><a href="#代码-3" id="markdown-toc-代码-3">代码</a></li>
+    </ul>
+  </li>
+  <li><a href="#求数列的和" id="markdown-toc-求数列的和">求数列的和</a>    <ul>
+      <li><a href="#题目描述-4" id="markdown-toc-题目描述-4">题目描述</a></li>
+      <li><a href="#输入描述-4" id="markdown-toc-输入描述-4">输入描述:</a></li>
+      <li><a href="#输出描述-4" id="markdown-toc-输出描述-4">输出描述:</a></li>
+      <li><a href="#示例1-4" id="markdown-toc-示例1-4">示例1</a>        <ul>
+          <li><a href="#输入-4" id="markdown-toc-输入-4">输入</a></li>
+          <li><a href="#输出-4" id="markdown-toc-输出-4">输出</a></li>
+        </ul>
+      </li>
+      <li><a href="#代码-4" id="markdown-toc-代码-4">代码</a></li>
+    </ul>
+  </li>
+</ul>
+
+<h1 id="树的高度">树的高度</h1>
+<h2 id="题目描述">题目描述</h2>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>现在有一棵合法的二叉树，树的节点都是用数字表示，现在给定这棵树上所有的父子关系，求这棵树的高度
+</code></pre></div></div>
+
+<h2 id="输入描述">输入描述:</h2>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>输入的第一行表示节点的个数n（1 ≤ n ≤ 1000，节点的编号为0到n-1）组成，
+下面是n-1行，每行有两个整数，第一个数表示父节点的编号，第二个数表示子节点的编号
+</code></pre></div></div>
+<h2 id="输出描述">输出描述:</h2>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>输出树的高度，为一个整数
+</code></pre></div></div>
+<h2 id="示例1">示例1</h2>
+<h3 id="输入">输入</h3>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>5
+0 1
+0 2
+1 3
+1 4
+</code></pre></div></div>
+<h3 id="输出">输出</h3>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>3
+</code></pre></div></div>
+<h2 id="代码">代码</h2>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>def test():
+    n = input()
+    a = dict()
+    a['0'] = 1
+    for i in range(n-1):
+        j = raw_input().strip().split()
+        if not a.get(j[1]):
+            a[j[1]] = a[j[0]] + 1
+    print max(a.values())
+ 
+ 
+ 
+if __name__ == "__main__":
+    test()
+</code></pre></div></div>
+<p>这样写的话，发现通过率为50%，有一个测试用例，输出应该是10，而我的代码输出是13，看了大家的讨论以后发现，题目描述是二叉树，而测试用例中并不是给的二叉树，所以要将父节点的第二个子节点之后的节点之间忽略掉，所以我将第三个子节点的高度直接设置为0，这样最后算高度的时候可能不会算到他。</p>
+
+<p>更新后的代码如下：</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>def test():
+    n = input()
+    a = dict()
+    a['0'] = [0, 1]
+    for i in range(n-1):
+        j = raw_input().strip().split()
+        a[j[0]][0] += 1
+        if not a.get(j[1]):
+            a[j[1]] = [0, a[j[0]][1] + 1]
+        if a[j[0]][0] &gt; 2:
+            a[j[1]][1] = 0
+    print max(i[1] for i in a.values() if i[0]&lt;3)
+
+
+
+if __name__ == "__main__":
+    test()
+</code></pre></div></div>
+<p>这样通过率就是100%了</p>
+
+<h1 id="句子反转">句子反转</h1>
+<h2 id="题目描述-1">题目描述</h2>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>给定一个句子（只包含字母和空格）， 将句子中的单词位置反转，单词用空格分割, 单词之间只有一个空格，前后没有空格。 比如： （1） “hello xiao mi”-&gt; “mi xiao hello”
+</code></pre></div></div>
+<h2 id="输入描述-1">输入描述:</h2>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>输入数据有多组，每组占一行，包含一个句子(句子长度小于1000个字符)
+</code></pre></div></div>
+<h2 id="输出描述-1">输出描述:</h2>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>对于每个测试示例，要求输出句子中单词反转后形成的句子
+</code></pre></div></div>
+<h2 id="示例1-1">示例1</h2>
+<h3 id="输入-1">输入</h3>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>hello xiao mi
+</code></pre></div></div>
+<h3 id="输出-1">输出</h3>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>mi xiao hello
+</code></pre></div></div>
+<h2 id="代码-1">代码：</h2>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>def test():
+    n = raw_input().strip().split()
+    print ' '.join(reversed(n))
+ 
+ 
+ 
+ 
+if __name__ == "__main__":
+    test()
+</code></pre></div></div>
+<h1 id="电话号码分身">电话号码分身</h1>
+<h2 id="题目描述-2">题目描述</h2>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>继MIUI8推出手机分身功能之后，MIUI9计划推出一个电话号码分身的功能：首先将电话号码中的每个数字加上8取个位，然后使用对应的大写字母代替 （"ZERO", "ONE", "TWO", "THREE", "FOUR", "FIVE", "SIX", "SEVEN", "EIGHT", "NINE"）， 然后随机打乱这些字母，所生成的字符串即为电话号码对应的分身。
+</code></pre></div></div>
+<h2 id="输入描述-2">输入描述:</h2>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>第一行是一个整数T（1 ≤ T ≤ 100)表示测试样例数；接下来T行，每行给定一个分身后的电话号码的分身（长度在3到10000之间）。
+</code></pre></div></div>
+<h2 id="输出描述-2">输出描述:</h2>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>输出T行，分别对应输入中每行字符串对应的分身前的最小电话号码（允许前导0）。
+</code></pre></div></div>
+<h2 id="示例1-2">示例1</h2>
+<h3 id="输入-2">输入</h3>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>4
+EIGHT
+ZEROTWOONE
+OHWETENRTEO
+OHEWTIEGTHENRTEO
+</code></pre></div></div>
+<h3 id="输出-2">输出</h3>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>0
+234
+345
+0345
+</code></pre></div></div>
+<h2 id="代码-2">代码</h2>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c">#! /usr/bin/python</span>
+<span class="c">#-*- coding: utf-8 -*-</span>
+<span class="n">__author__</span> <span class="o">=</span> <span class="s">'zaipingY'</span>
+
+<span class="k">def</span> <span class="nf">test</span><span class="p">():</span>
+    <span class="n">n</span> <span class="o">=</span> <span class="nb">input</span><span class="p">()</span>
+    <span class="n">result</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">*</span> <span class="mi">10</span>
+    <span class="n">put</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+        <span class="n">b</span> <span class="o">=</span> <span class="s">''</span>
+        <span class="n">a</span> <span class="o">=</span> <span class="nb">raw_input</span><span class="p">()</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
+        <span class="n">result</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">a</span><span class="o">.</span><span class="n">count</span><span class="p">(</span><span class="s">'Z'</span><span class="p">)</span>
+        <span class="n">result</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">=</span> <span class="n">a</span><span class="o">.</span><span class="n">count</span><span class="p">(</span><span class="s">'W'</span><span class="p">)</span>
+        <span class="n">result</span><span class="p">[</span><span class="mi">4</span><span class="p">]</span> <span class="o">=</span> <span class="n">a</span><span class="o">.</span><span class="n">count</span><span class="p">(</span><span class="s">'U'</span><span class="p">)</span>
+        <span class="n">result</span><span class="p">[</span><span class="mi">6</span><span class="p">]</span> <span class="o">=</span> <span class="n">a</span><span class="o">.</span><span class="n">count</span><span class="p">(</span><span class="s">'X'</span><span class="p">)</span>
+        <span class="n">result</span><span class="p">[</span><span class="mi">8</span><span class="p">]</span> <span class="o">=</span> <span class="n">a</span><span class="o">.</span><span class="n">count</span><span class="p">(</span><span class="s">'G'</span><span class="p">)</span>
+        <span class="n">result</span><span class="p">[</span><span class="mi">7</span><span class="p">]</span> <span class="o">=</span> <span class="n">a</span><span class="o">.</span><span class="n">count</span><span class="p">(</span><span class="s">'S'</span><span class="p">)</span><span class="o">-</span><span class="n">result</span><span class="p">[</span><span class="mi">6</span><span class="p">]</span>
+        <span class="n">result</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span> <span class="o">=</span> <span class="n">a</span><span class="o">.</span><span class="n">count</span><span class="p">(</span><span class="s">'T'</span><span class="p">)</span><span class="o">-</span><span class="n">result</span><span class="p">[</span><span class="mi">8</span><span class="p">]</span><span class="o">-</span><span class="n">result</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span>
+        <span class="n">result</span><span class="p">[</span><span class="mi">5</span><span class="p">]</span> <span class="o">=</span> <span class="n">a</span><span class="o">.</span><span class="n">count</span><span class="p">(</span><span class="s">'F'</span><span class="p">)</span><span class="o">-</span><span class="n">result</span><span class="p">[</span><span class="mi">4</span><span class="p">]</span>
+        <span class="n">result</span><span class="p">[</span><span class="mi">9</span><span class="p">]</span> <span class="o">=</span> <span class="n">a</span><span class="o">.</span><span class="n">count</span><span class="p">(</span><span class="s">'I'</span><span class="p">)</span><span class="o">-</span><span class="n">result</span><span class="p">[</span><span class="mi">5</span><span class="p">]</span><span class="o">-</span><span class="n">result</span><span class="p">[</span><span class="mi">6</span><span class="p">]</span><span class="o">-</span><span class="n">result</span><span class="p">[</span><span class="mi">8</span><span class="p">]</span>
+        <span class="n">result</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">a</span><span class="o">.</span><span class="n">count</span><span class="p">(</span><span class="s">'O'</span><span class="p">)</span><span class="o">-</span><span class="n">result</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">-</span><span class="n">result</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">-</span><span class="n">result</span><span class="p">[</span><span class="mi">4</span><span class="p">]</span>
+        <span class="k">for</span> <span class="n">i</span><span class="p">,</span><span class="n">j</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">result</span><span class="p">,</span> <span class="n">start</span><span class="o">=</span><span class="mi">0</span><span class="p">):</span>
+            <span class="k">if</span> <span class="n">i</span> <span class="o">&lt;</span><span class="mi">8</span><span class="p">:</span>
+                <span class="n">b</span> <span class="o">+=</span> <span class="nb">str</span><span class="p">(</span><span class="n">i</span> <span class="o">-</span> <span class="mi">8</span> <span class="o">+</span> <span class="mi">10</span><span class="p">)</span> <span class="o">*</span> <span class="n">j</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">b</span> <span class="o">+=</span> <span class="nb">str</span><span class="p">(</span><span class="n">i</span> <span class="o">-</span> <span class="mi">8</span><span class="p">)</span> <span class="o">*</span> <span class="n">j</span>
+        <span class="n">put</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s">''</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="nb">sorted</span><span class="p">(</span><span class="n">b</span><span class="p">)))</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">put</span><span class="p">:</span>
+        <span class="k">print</span> <span class="n">i</span>
+
+
+
+
+<span class="k">if</span> <span class="n">__name__</span> <span class="o">==</span> <span class="s">"__main__"</span><span class="p">:</span>
+    <span class="n">test</span><span class="p">()</span>
+</code></pre></div></div>
+
+<h1 id="水仙花数">水仙花数</h1>
+<h2 id="题目描述-3">题目描述</h2>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>春天是鲜花的季节，水仙花就是其中最迷人的代表，数学上有个水仙花数，他是这样定义的： “水仙花数”是指一个三位数，它的各位数字的立方和等于其本身，比如：153=1^3+5^3+3^3。 现在要求输出所有在m和n范围内的水仙花数。
+
+</code></pre></div></div>
+<h2 id="输入描述-3">输入描述:</h2>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>输入数据有多组，每组占一行，包括两个整数m和n（100 ≤ m ≤ n ≤ 999）。
+
+</code></pre></div></div>
+<h2 id="输出描述-3">输出描述:</h2>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>对于每个测试实例，要求输出所有在给定范围内的水仙花数，就是说，输出的水仙花数必须大于等于m,并且小于等于n，如果有多个，则要求从小到大排列在一行内输出，之间用一个空格隔开;如果给定的范围内不存在水仙花数，则输出no;
+每个测试实例的输出占一行。
+
+</code></pre></div></div>
+<h2 id="示例1-3">示例1</h2>
+<h3 id="输入-3">输入</h3>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>100 120
+300 380
+</code></pre></div></div>
+<h3 id="输出-3">输出</h3>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>no
+370 371
+</code></pre></div></div>
+<h2 id="代码-3">代码</h2>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c">#! /usr/bin/python</span>
+<span class="c">#-*- coding: utf-8 -*-</span>
+<span class="kn">import</span> <span class="nn">sys</span>
+<span class="err"> </span>
+<span class="n">__author__</span> <span class="o">=</span> <span class="s">'zaipingY'</span>
+<span class="err"> </span>
+<span class="k">def</span> <span class="nf">main</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">):</span>
+<span class="err">    </span><span class="n">res</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="err">    </span><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="o">+</span><span class="mi">1</span><span class="p">):</span>
+<span class="err">        </span><span class="n">d</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="err">        </span><span class="k">for</span> <span class="n">v</span> <span class="ow">in</span> <span class="nb">str</span><span class="p">(</span><span class="n">i</span><span class="p">):</span>
+<span class="err">            </span><span class="n">d</span> <span class="o">+=</span> <span class="nb">int</span><span class="p">(</span><span class="n">v</span><span class="p">)</span> <span class="o">**</span> <span class="mi">3</span>
+<span class="err">        </span><span class="k">if</span> <span class="n">d</span> <span class="o">==</span> <span class="n">i</span><span class="p">:</span>
+<span class="err">            </span><span class="n">res</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">i</span><span class="p">))</span>
+<span class="err">    </span><span class="k">return</span> <span class="n">res</span>
+<span class="err"> </span>
+<span class="k">if</span> <span class="n">__name__</span> <span class="o">==</span> <span class="s">"__main__"</span><span class="p">:</span>
+<span class="err">    </span><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">sys</span><span class="o">.</span><span class="n">stdin</span><span class="o">.</span><span class="n">readlines</span><span class="p">():</span>
+<span class="err">        </span><span class="n">x</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">i</span><span class="o">.</span><span class="n">split</span><span class="p">()</span>
+<span class="err">        </span><span class="n">res</span> <span class="o">=</span> <span class="n">main</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">x</span><span class="p">),</span> <span class="nb">int</span><span class="p">(</span><span class="n">y</span><span class="p">))</span>
+<span class="err">        </span><span class="k">if</span> <span class="n">res</span><span class="p">:</span>
+<span class="err">            </span><span class="k">print</span> <span class="s">' '</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">res</span><span class="p">)</span>
+<span class="err">        </span><span class="k">else</span><span class="p">:</span>
+<span class="err">            </span><span class="k">print</span> <span class="s">'no'</span>
+</code></pre></div></div>
+
+<h1 id="求数列的和">求数列的和</h1>
+<h2 id="题目描述-4">题目描述</h2>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>数列的第一项为n，以后各项为前一项的平方根，求数列的前m项的和。
+</code></pre></div></div>
+<h2 id="输入描述-4">输入描述:</h2>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>输入数据有多组，每组占一行，由两个整数n（n &lt; 10000）和m(m &lt; 1000)组成，n和m的含义如前所述。
+</code></pre></div></div>
+<h2 id="输出描述-4">输出描述:</h2>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>对于每组输入数据，输出该数列的和，每个测试实例占一行，要求精度保留2位小数。
+</code></pre></div></div>
+<h2 id="示例1-4">示例1</h2>
+<h3 id="输入-4">输入</h3>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>81 4
+2 2
+</code></pre></div></div>
+<h3 id="输出-4">输出</h3>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>94.73
+3.41
+</code></pre></div></div>
+<h2 id="代码-4">代码</h2>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c">#! /usr/bin/python</span>
+<span class="c">#-*- coding: utf-8 -*-</span>
+<span class="kn">import</span> <span class="nn">sys</span>
+<span class="err"> </span>
+<span class="n">__author__</span> <span class="o">=</span> <span class="s">'zaipingY'</span>
+<span class="err"> </span>
+<span class="k">def</span> <span class="nf">main</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">):</span>
+<span class="err">    </span><span class="n">d</span> <span class="o">=</span> <span class="n">x</span>
+<span class="err">    </span><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">y</span><span class="o">-</span><span class="mi">1</span><span class="p">):</span>
+<span class="err">        </span><span class="n">x</span> <span class="o">=</span> <span class="nb">pow</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">)</span>
+<span class="err">        </span><span class="n">d</span> <span class="o">+=</span> <span class="n">x</span>
+<span class="err">    </span><span class="k">print</span> <span class="s">'</span><span class="si">%.2</span><span class="s">f'</span> <span class="o">%</span> <span class="n">d</span>
+<span class="err"> </span>
+<span class="err"> </span>
+<span class="k">if</span> <span class="n">__name__</span> <span class="o">==</span> <span class="s">"__main__"</span><span class="p">:</span>
+<span class="err">    </span><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">sys</span><span class="o">.</span><span class="n">stdin</span><span class="o">.</span><span class="n">readlines</span><span class="p">():</span>
+<span class="err">        </span><span class="n">x</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">i</span><span class="o">.</span><span class="n">split</span><span class="p">()</span>
+<span class="err">        </span><span class="n">main</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">x</span><span class="p">),</span> <span class="nb">int</span><span class="p">(</span><span class="n">y</span><span class="p">))</span>
+</code></pre></div></div>
+
+        </article>
+        <hr>
+
+        
+        
+            
+            
+                
+                    
+                        
+                        <h2 id="similar_posts">Similar Posts</h2>
+                        <ul>
+                        
+                        <li class="relatedPost">
+                            <a href="/2017/12/27/%E7%89%9B%E5%AE%A2%E7%BC%96%E7%A8%8B12.27-%E5%90%88%E5%94%B1%E5%9B%A2/">牛客刷题
+                            
+                            </a>
+                        </li>
+                        
+                        
+                    
+                
+                    
+                
+                    
+                
+            
+                
+                    
+                
+                    
+                
+                    
+                
+            
+                
+                    
+                
+                    
+                
+                    
+                
+            
+        
+            
+            
+                
+                    
+                        
+                        <li class="relatedPost">
+                            <a href="/2017/12/26/%E7%89%9B%E5%AE%A2%E7%BC%96%E7%A8%8B12.26/">牛客刷题
+                            
+                            </a>
+                        </li>
+                        
+                        
+                    
+                
+                    
+                
+                    
+                
+            
+                
+                    
+                
+                    
+                
+                    
+                
+            
+                
+                    
+                
+                    
+                
+                    
+                
+            
+        
+            
+            
+                
+                    
+                
+                    
+                
+                    
+                
+            
+        
+            
+            
+                
+                    
+                
+                    
+                
+                    
+                
+            
+                
+                    
+                
+                    
+                
+                    
+                
+            
+        
+            
+            
+                
+                    
+                
+                    
+                
+                    
+                
+            
+        
+            
+            
+                
+                    
+                
+                    
+                
+                    
+                
+            
+        
+            
+            
+                
+                    
+                        
+                        <li class="relatedPost">
+                            <a href="/2017/12/08/%E7%89%9B%E5%AE%A2%E7%BC%96%E7%A8%8B12.8/">牛客刷题
+                            
+                            </a>
+                        </li>
+                        
+                        
+                    
+                
+                    
+                
+                    
+                
+            
+                
+                    
+                
+                    
+                
+                    
+                
+            
+                
+                    
+                
+                    
+                
+                    
+                
+            
+        
+            
+            
+                
+                    
+                
+                    
+                
+                    
+                
+            
+        
+            
+            
+                
+                    
+                
+                    
+                
+                    
+                        
+                        <li class="relatedPost">
+                            <a href="/2017/12/06/%E6%95%B0%E7%BB%84/">数组
+                            
+                            </a>
+                        </li>
+                        
+                        
+                    
+                
+            
+                
+                    
+                
+                    
+                
+                    
+                
+            
+                
+                    
+                
+                    
+                
+                    
+                
+            
+        
+            
+            
+                
+                    
+                
+                    
+                
+                    
+                
+            
+        
+        
+            </ul>
+        
+
+        <div class="post-recent">
+    <div class="pre">
+        
+        <p><strong>上一篇</strong> <a href="/2017/12/07/angr-Solver-Engine/">angr-Solver Engine</a></p>
+        
+    </div>
+    <div class="nex">
+
+        
+        <p><strong>下一篇</strong> <a href="/2017/12/08/%E7%89%9B%E5%AE%A2%E7%BC%96%E7%A8%8B12.8/">牛客刷题</a></p>
+        
+    </div>
+</div>
+
+
+        <h2 id="comments">Comments</h2>
+        
+
+
+<div id="disqus_thread"></div>
+<script>
+    /**
+     * RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+     * LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables
+     */
+
+    var disqus_config = function() {
+        this.page.url = 'http://localhost:4000/2017/12/07/%E7%89%9B%E5%AE%A2%E7%BC%96%E7%A8%8B/'; // Replace PAGE_URL with your page's canonical URL variable
+        this.page.identifier = 'http://localhost:4000/2017/12/07/%E7%89%9B%E5%AE%A2%E7%BC%96%E7%A8%8B/'; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+    };
+
+    (function() { // DON'T EDIT BELOW THIS LINE
+        var d = document,
+            s = d.createElement('script');
+
+        s.src = '//zyuan.disqus.com/embed.js';
+
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+
+
+
+
+    </div>
+    <button class="anchor"><i class="fa fa-anchor"></i></button>
+    <div class="right">
+        <div class="wrap">
+
+            <!-- Content -->
+            <div class="side content">
+                <div>
+                    Content
+                </div>
+                <ul id="content-side" class="content-ul">
+                    
+                    <li><a href="#similar_posts">Similar Posts</a></li>
+                    
+                    <li><a href="#comments">Comments</a></li>
+                </ul>
+            </div>
+            <!-- 其他div框放到这里 -->
+            <!-- <div class="side">bbbb</div> -->
+        </div>
+    </div>
+</div>
+<script>
+/**
+ * target _blank
+ */
+(function() {
+    var aTags = document.querySelectorAll('article a:not([id])')
+    for (var i = 0; i < aTags.length; i++) {
+        aTags[i].setAttribute('target', '_blank')
+    }
+}());
+</script>
+<script src="/js/pageContent.js " charset="utf-8"></script>
+
+
+    <footer class="site-footer">
+
+
+    <div class="wrapper">
+
+        <p class="description">
+             为所当为，顺气自然 
+        </p>
+        <p class="contact">
+            Contact me at:         
+        </p>
+        <p>
+            本站总访问量<span id="busuanzi_value_site_pv"></span>次，本站访客数<span id="busuanzi_value_site_uv"></span>人次，本文总阅读量<span id="busuanzi_value_page_pv"></span>次
+        </p>
+        <p class="power">
+            <span>
+                Site powered by <a href="https://jekyllrb.com/">Jekyll</a> & <a href="https://pages.github.com/">Github Pages</a>.
+            </span>
+            <span>
+                Theme designed by <a href="https://github.com/Gaohaoyang">HyG</a>.
+            </span>
+        </p>
+    </div>
+</footer>
+<script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+    <div class="back-to-top">
+    <a href="#top" data-scroll>
+        <i class="fa fa-arrow-up" aria-hidden="true"></i>
+    </a>
+</div>
+
+    <script src=" /js/main.js " charset="utf-8"></script>
+    <script src=" /js/smooth-scroll.min.js " charset="utf-8"></script>
+    <script type="text/javascript">
+      smoothScroll.init({
+        speed: 500, // Integer. How fast to complete the scroll in milliseconds
+        easing: 'easeInOutCubic', // Easing pattern to use
+        offset: 20, // Integer. How far to offset the scrolling anchor location in pixels
+      });
+    </script>
+    <!-- <script src=" /js/scroll.min.js " charset="utf-8"></script> -->
+  </body>
+
+</html>
