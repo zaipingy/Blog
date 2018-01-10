@@ -7,12 +7,14 @@
 
 # Site settings
 title: zaipingy
-brief-intro: My Blog
+brief-intro: Blog
 baseurl: "" # the subpath of your site, e.g. /blog
-url: "https://gaohaoyang.github.io" # the base hostname & protocol for your site
+url: "https://zaipingy.github.io" # the base hostname & protocol for your site
 
 permalink: /:year/:month/:day/:title/
 
+github_username:  zaipingy
+email:  zaiping.yuan@foxmail.com
 
 
 description_footer: 为所当为，顺气自然
