@@ -11,13 +11,12 @@ type: page
 
 ## 关于我
 
-<iframe src="https://githubbadge.appspot.com/gaohaoyang?s=1" style="border: 0;height: 142px;width: 200px;overflow: hidden;" frameBorder="0"></iframe>
 
 南京邮电大学软件工程专硕在读。
 
 
-* 2017.9-2018.1 凯易迅自动化测试开发（实习生）
 * 2016.9-至今 	南京邮电大学 计软院
+* 2017.9-2018.1 凯易迅自动化测试开发（实习生）
 * 2012.9-2016.6 南京晓庄学院 物理与电子工程学院
 
 ## 联系我
